@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Build Up Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">Portfolio showcase</p>
+        <h1>Build Up Portfolio</h1>
+        <p class="subtitle">
+          I design modern web experiences, build polished interfaces, and turn ideas into responsive digital products.
+        </p>
+        <a class="cta" href="#projects">View Projects</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="about">
+        <div class="section-heading">
+          <h2>About Me</h2>
+          <p>
+            I’m a developer and creative technologist focused on clean UI, fast-loading pages, and practical user-centered design.
+          </p>
+        </div>
+      </section>
+
+      <section class="filters" aria-label="Project categories">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="web">Web</button>
+        <button class="filter-btn" data-category="branding">Branding</button>
+        <button class="filter-btn" data-category="ui">UI/UX</button>
+      </section>
+
+      <section id="projects" class="catalog">
+        <article class="card" data-category="web">
+          <h2>Developer Portfolio</h2>
+          <p>A refined personal portfolio with responsive layout and strong visual hierarchy.</p>
+          <div class="meta-row">
+            <span>Web</span>
+            <a href="#">Case Study</a>
+          </div>
+        </article>
+
+        <article class="card" data-category="branding">
+          <h2>Creative Rebrand</h2>
+          <p>Brand identity refresh for a boutique startup launching a digital-first presence.</p>
+          <div class="meta-row">
+            <span>Branding</span>
+            <a href="#">View Brief</a>
+          </div>
+        </article>
+
+        <article class="card" data-category="ui">
+          <h2>Mobile-first Dashboard</h2>
+          <p>A clean analytics dashboard designed for clarity, speed, and accessibility.</p>
+          <div class="meta-row">
+            <span>UI/UX</span>
+            <a href="#">Explore</a>
+          </div>
+        </article>
+
+        <article class="card" data-category="web">
+          <h2>Landing Page System</h2>
+          <p>A reusable, container-friendly landing page template for marketing campaigns.</p>
+          <div class="meta-row">
+            <span>Web</span>
+            <a href="#">Preview</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="contact">
+        <div class="section-heading">
+          <h2>Let’s Build Something</h2>
+          <p>Available for freelance work, portfolio refreshes, and thoughtful web experiences.</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

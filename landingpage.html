@@ -1,0 +1,135 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Portfolio</title>
+    <link rel="stylesheet" href="landingpage.css">
+</head>
+<body>
+    <div class="container" id="welcomeContainer">
+        <h1>Welcome to my portfolio!</h1>
+        <p id="infoText">feel free to explore my portfolio and please feel free to comment and give feedback where neccessary <br> If you would not mind please fill the form for better identification.</p>
+        
+        <div class="button-group">
+            <a href="homepage.html" class="btn btn-primary">view Portfolio</a>
+            <a href="#" class="btn btn-secondary" id="secondaryBtn" onclick="displayForm()">Fill form</a>
+        </div>
+    </div>
+
+<form id="form" class="formcontainer"onsubmit="return valForm()">
+   <br>
+    <h3 align="center">Please fill the form</h3>
+    <hr>
+    <p id="info" color="red" ></p>
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            placeholder="Enter your name"
+                        >
+                    </div>
+<br>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="Enter your email"
+                        >
+                    </div>
+<br>
+                    <button type="submit" class="submit-btn">Submit</button>
+                    <p class="disclaimer">
+                    Please note that any information given here will only be used for identification.
+                </p>
+                </form>
+
+                <div id="confirmationContainer">
+                    <h3>✓ Success!</h3>
+                    <p>Thank you for filling out the form. You will be redirected shortly...</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+    <script>
+        function displayForm(){
+            let replace = document.getElementById("form");
+            let change = document.getElementById("welcomeContainer");
+
+            change.style.display = "none";
+            replace.style.display = "block";
+        }
+        function valForm() {
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+
+            if (name === "") {
+                message("Need a name!!");
+                return false;
+            }
+
+            if (email === "") {
+                message("Need an email!!");
+                return false;
+            }
+
+            if (!emailChecker(email)) {
+                message("Invalid email");
+                document.getElementById("email").value = "";
+                return false;
+            }
+
+            message("");
+            submissionApproved();
+            return true;
+        }
+
+        function message(m) {
+            document.getElementById("info").innerHTML = m;
+        }
+
+        function emailChecker(email) {
+            let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            return emailPattern.test(email);
+        }
+
+        function submissionApproved() {
+            let replace = document.getElementById("welcomeContainer");
+            let thanks= document.getElementById("infoText").innerHTML="Thank you";
+            let hiddenBtn = document.getElementById("secondaryBtn");
+            let change = document.getElementById("form");
+            change.style.display = "none";
+            replace.style.display = "block";
+            hiddenBtn.style.display = "none";
+            thanks.style.fontSize = "2rems";
+
+            // Store form data
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let userData = {
+                name: name,
+                email: email,
+                timestamp: new Date().toLocaleString()
+            };
+
+            const existingData = JSON.parse(localStorage.getItem('portfolioVisitors')) || [];
+            existingData.push(userData);
+            localStorage.setItem('portfolioVisitors', JSON.stringify(existingData));
+
+            console.log('Form Data Submitted:', userData);
+
+            // Redirect to home.html after 2 seconds
+            setTimeout(() => {
+                window.location.href = 'home.html';
+            }, 2000);
+        }
+    </script>
+
+

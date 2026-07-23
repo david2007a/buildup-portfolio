@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Containerization Steps</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+      background: #f7f9fc;
+      color: #1f2937;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    h1, h2 {
+      color: #1d4ed8;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .done {
+      color: #0f766e;
+      font-weight: bold;
+    }
+    .next {
+      color: #b45309;
+      font-weight: bold;
+    }
+    code {
+      background: #eff6ff;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Portfolio Containerization Steps</h1>
+
+    <h2>What I did</h2>
+    <ul>
+      <li class="done">Reviewed the project structure and identified that the Docker setup was invalid for a static portfolio site.</li>
+      <li class="done">Opened the existing Docker file and found that it started with a <code>fortune</code> image and then tried to switch into an Nginx server. That was the root problem.</li>
+      <li class="done">Replaced the broken Dockerfile with one clean Nginx container that serves the portfolio files directly.</li>
+      <li class="done">Updated the Compose files so the site is published to port <code>8080</code> on the host machine.</li>
+      <li class="done">Created the missing portfolio assets so there is an actual website to serve, including the main HTML page, the stylesheet, and the filtering script.</li>
+      <li class="done">Updated the README so the run steps match the final portfolio version instead of the earlier catalog version.</li>
+    </ul>
+
+    <h2>Step-by-step: how to do it yourself</h2>
+    <ol>
+      <li>Open the folder where your portfolio project is saved.</li>
+      <li>Make sure the files <code>index.html</code>, <code>styles.css</code>, and <code>script.js</code> are present.</li>
+      <li>Create or replace the Dockerfile with this content:</li>
+      <pre><code>FROM nginx:alpine
+
+LABEL Name=buildupporfolio Version=0.0.1
+
+COPY . /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]</code></pre>
+      <li>In the Compose file, map port <code>8080</code> to container port <code>80</code>.</li>
+      <li>Build the image with:</li>
+      <pre><code>docker build -t buildupporfolio .</code></pre>
+      <li>Run the container with:</li>
+      <pre><code>docker run -p 8080:80 buildupporfolio</code></pre>
+      <li>Open <code>http://localhost:8080</code> in your browser.</li>
+    </ol>
+
+    <h2>What you should do next</h2>
+    <ol>
+      <li>Open a terminal in the project folder.</li>
+      <li>Make sure Docker Desktop is running on your computer.</li>
+      <li>Run the image build command:</li>
+      <pre><code>docker build -t buildupporfolio .</code></pre>
+      <li>Run the container:</li>
+      <pre><code>docker run -p 8080:80 buildupporfolio</code></pre>
+      <li>Open your browser and go to <code>http://localhost:8080</code>.</li>
+      <li>If the build fails, restart Docker Desktop and retry. If the issue continues, check that the Docker engine is running properly.</li>
+    </ol>
+
+    <h2>Important note</h2>
+    <p>
+      The project files are now corrected, but the actual image build could not be fully confirmed in this session because the Docker daemon/environment was not reachable from the terminal used here.
+    </p>
+
+    <h2>Docker diagnosis we performed</h2>
+    <p>
+      We checked whether the Docker command was available in the terminal and whether the executable itself existed on the system. The command path for Docker was found here:
+    </p>
+    <pre><code>C:\Users\HP PC\AppData\Local\Programs\DockerDesktop\resources\bin\docker.exe</code></pre>
+    <p>
+      Evidence gathered during diagnosis:
+    </p>
+    <ul>
+      <li class="done">The Docker CLI binary exists on the machine.</li>
+      <li class="done">The project files have been corrected for a static Nginx portfolio site.</li>
+      <li class="done">The earlier build error showed the Docker engine was not reachable in the terminal session.</li>
+      <li class="done">The current blocker is the Docker Desktop/engine runtime, not the HTML/CSS/JS portfolio code.</li>
+    </ul>
+
+    <h2>How you can fix the Docker problem yourself</h2>
+    <ol>
+      <li>Close any terminal windows that are currently open.</li>
+      <li>Open Docker Desktop from the Windows Start menu and wait until it says the engine is running.</li>
+      <li>Open a new PowerShell window.</li>
+      <li>Use the correct PowerShell command to go to the project folder:</li>
+      <pre><code>cd "C:\Users\HP PC\OneDrive\Desktop\assignment\build up porfolio"</code></pre>
+      <li>Do not use the Linux-style command <code>cd /d ...</code> in PowerShell. That is the terminal mismatch that caused the command failure.</li>
+      <li>Run this command to confirm Docker is visible:</li>
+      <pre><code>Get-Command docker</code></pre>
+      <li>Run this command to confirm the Docker engine responds:</li>
+      <pre><code>docker version</code></pre>
+      <li>If that still fails, use the full Docker Desktop path explicitly:</li>
+      <pre><code>"C:\Users\HP PC\AppData\Local\Programs\DockerDesktop\resources\bin\docker.exe" version</code></pre>
+      <li>If Docker Desktop still says it is not running, restart Docker Desktop completely and retry.</li>
+      <li>After the engine is healthy, return to the project folder and run:</li>
+      <pre><code>docker build -t buildupporfolio .</code></pre>
+      <li>Then start the container:</li>
+      <pre><code>docker run -p 8080:80 buildupporfolio</code></pre>
+    </ol>
+
+    <h2>Final goal</h2>
+    <p>
+      The final outcome should be a working portfolio website containerized with Docker and available at <code>http://localhost:8080</code>.
+    </p>
+  </div>
+
+</body>
+</html>

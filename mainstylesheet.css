@@ -1,0 +1,199 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #01052e;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #001f3f;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+        }
+
+        nav ul li {
+            display: inline-block;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #00d4ff;
+        }
+
+        /* Main Container */
+        .main-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 60px;
+            background-color: #010424;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Left Section - Illustration */
+        .illustration-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .illustration-section img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Right Section - Content */
+        .content-section {
+            flex: 1;
+        }
+
+        .content-section h1 {
+            font-size: 92px;
+            font-weight: 900;
+            color: #faf9f9;
+            line-height: 1.2;
+            margin-bottom: 40px;
+            letter-spacing: -2px;
+        }
+
+        /* Buttons Container */
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: fit-content;
+        }
+
+        .btn {
+            padding: 15px 50px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            background-color: #001f3f;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            min-width: 220px;
+        }
+
+        .btn:hover {
+            background-color: #003d66;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 31, 63, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-container {
+                flex-direction: column;
+                padding: 60px 40px;
+                gap: 40px;
+            }
+
+            .content-section h1 {
+                font-size: 52px;
+            }
+
+            nav ul {
+                gap: 50px;
+            }
+
+            nav ul li a {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 40px 20px;
+            }
+
+            .content-section h1 {
+                font-size: 40px;
+            }
+
+            nav ul {
+                gap: 30px;
+                flex-wrap: wrap;
+            }
+
+            nav ul li a {
+                font-size: 16px;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 16px;
+                min-width: 180px;
+            }
+
+            .illustration-section img {
+                max-width: 350px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            nav ul li a {
+                font-size: 14px;
+            }
+
+            .main-container {
+                padding: 30px 15px;
+            }
+
+            .content-section h1 {
+                font-size: 32px;
+            }
+
+            .btn {
+                padding: 10px 25px;
+                font-size: 14px;
+                min-width: 150px;
+            }
+
+            .buttons-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }

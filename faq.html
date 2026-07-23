@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Build Up Creations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #001f3f;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        nav ul li {
+            display: inline-block;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #00d4ff;
+        }
+
+        /* Main Container */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 40px;
+            background-color: #f5f5f5;
+            min-height: calc(100vh - 80px);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .content-box {
+            background-color: #ffffff;
+            padding: 35px 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        .content-box h1 {
+            font-size: 36px;
+            color: #001f3f;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .faq-item {
+            margin-bottom: 25px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-size: 16px;
+            font-weight: bold;
+            color: #001f3f;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .faq-question:hover {
+            color: #00d4ff;
+        }
+
+        .faq-answer {
+            font-size: 14px;
+            color: #333333;
+            line-height: 1.6;
+            margin-top: 12px;
+            display: none;
+            animation: slideDown 0.3s ease-out;
+            padding-left: 5px;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .faq-toggle {
+            font-size: 22px;
+            color: #001f3f;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            nav ul {
+                gap: 50px;
+            }
+
+            nav ul li a {
+                font-size: 18px;
+            }
+
+            .main-container {
+                padding: 60px 40px;
+            }
+
+            .content-box {
+                padding: 40px 40px;
+            }
+
+            .content-box h1 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 30px;
+                flex-wrap: wrap;
+            }
+
+            nav ul li a {
+                font-size: 16px;
+            }
+
+            .main-container {
+                padding: 40px 20px;
+            }
+
+            .content-box {
+                padding: 30px 20px;
+            }
+
+            .content-box h1 {
+                font-size: 28px;
+            }
+
+            .faq-question {
+                font-size: 16px;
+            }
+
+            .faq-answer {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            nav ul li a {
+                font-size: 14px;
+            }
+
+            .main-container {
+                padding: 30px 15px;
+            }
+
+            .content-box {
+                padding: 20px 15px;
+            }
+
+            .content-box h1 {
+                font-size: 22px;
+            }
+
+            .faq-question {
+                font-size: 14px;
+            }
+
+            .faq-answer {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+                 <li><a href="homepage.html">Home</a></li>
+            <li><a href="profile.html">About</a></li>
+            <li><a href="contactpage.html">Contact</a></li>
+            <li><a href="faq.html">Faq</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-container">
+        <div class="content-box">
+            <h1>Frequently Asked Questions</h1>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>What services do you offer?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    We offer website design, branding, graphic design, content support, and digital business solutions tailored to your needs.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>How do I request a project?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    You can use the contact page to send your project details, and our team will reach out to discuss the best solution for your goals.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>How long does delivery take?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Delivery time depends on the size and complexity of the task. Simple jobs are usually fast, while larger custom projects may take a few days or more.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Can I ask for revisions?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes, revisions are welcome. We aim to make sure the final result matches your expectations and suits your purpose.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Do you work with individuals and businesses?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes. We support both individuals and businesses that need professional design, web presence, or creative digital help.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const toggle = element.querySelector('.faq-toggle');
+
+            // Close all other open FAQs
+            document.querySelectorAll('.faq-answer.active').forEach(item => {
+                if (item !== answer) {
+                    item.classList.remove('active');
+                    item.previousElementSibling.querySelector('.faq-toggle').textContent = '+';
+                }
+            });
+
+            // Toggle current FAQ
+            answer.classList.toggle('active');
+            toggle.textContent = answer.classList.contains('active') ? '−' : '+';
+        }
+    </script>
+</body>
+</html>

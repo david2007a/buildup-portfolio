@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Build Up Creations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #001f3f;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        nav ul li {
+            display: inline-block;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #00d4ff;
+        }
+
+        /* Main Container */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 40px;
+            background-color: #f5f5f5;
+            min-height: calc(100vh - 80px);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-box {
+            background-color: #ffffff;
+            padding: 35px 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .content-box h1 {
+            font-size: 36px;
+            color: #001f3f;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .content-box p {
+            font-size: 16px;
+            color: #333333;
+            line-height: 1.7;
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            nav ul {
+                gap: 50px;
+            }
+
+            nav ul li a {
+                font-size: 18px;
+            }
+
+            .main-container {
+                padding: 60px 40px;
+            }
+
+            .content-box {
+                padding: 40px 40px;
+            }
+
+            .content-box h1 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 30px;
+                flex-wrap: wrap;
+            }
+
+            nav ul li a {
+                font-size: 16px;
+            }
+
+            .main-container {
+                padding: 40px 20px;
+            }
+
+            .content-box {
+                padding: 30px 20px;
+            }
+
+            .content-box h1 {
+                font-size: 28px;
+            }
+
+            .content-box p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            nav ul li a {
+                font-size: 14px;
+            }
+
+            .main-container {
+                padding: 30px 15px;
+            }
+
+            .content-box {
+                padding: 20px 15px;
+            }
+
+            .content-box h1 {
+                font-size: 22px;
+            }
+
+            .content-box p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index2.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-container">
+        <div class="content-box">
+            <h1>About Build Up Creations</h1>
+            <p>
+                Build Up Creations is a creative agency dedicated to bringing your ideas to life. We specialize in web design, 
+                digital marketing, and creative solutions that help businesses grow and succeed in the digital world.
+            </p>
+            <p>
+                Our team of experienced professionals is committed to delivering exceptional results and exceeding client expectations. 
+                We believe in collaboration, innovation, and quality work that makes a real impact.
+            </p>
+            <p>
+                With years of experience in the industry, we have helped numerous businesses establish their online presence and 
+                achieve their goals. Whether you're a startup or an established company, we're here to help you grow.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
